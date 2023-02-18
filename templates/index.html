@@ -1,0 +1,399 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+NexStud: Your One-Stop Destination for University Admissions in India
+{% endblock title %}
+
+
+{% block meta %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="NexStud: Your Trusted Partner for University Admissions in India. Discover top universities, explore the best colleges, and get expert guidance to streamline your admission process.">
+<meta name="keywords" content="university admissions, college admissions, education, India, NexStud">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<meta name="google" content="nositelinkssearchbox">
+<meta name="google-site-verification" content="q7T0NKFI4OPbGi_mKXvxUJxaFMja0LrtrxOu7_18GqI" />
+<meta name="author" content="Nexstud by Nexel">
+<meta name="copyright" content="Copyright (c) 2023 NexStud">
+
+{% endblock meta %}
+
+
+{% block content %}
+
+<br>
+<br>
+    <main style="margin-bottom: 160px;">
+
+        <!-- Slider Area Start-->
+        <div class="slider-area">
+            <div class="slider-active">
+                <div class="single-slider slider-height d-flex align-items-center" data-background="{% static 'assets/img/hero/h1_hero.png' %}">
+                    <div class="container">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-lg-7 col-md-9 ">
+                                <div class="hero__caption">
+                                    <h1 data-animation="fadeInLeft" data-delay=".4s" >Join Top Universities<br>India with NexStud</h1>
+                                    <p data-animation="fadeInLeft" data-delay=".6s">Unleash your academic potential by joining the top universities in India with NexStud's expert guidance. Let us simplify your admission process and help you secure your place at the university of your dreams.</p>
+                                    <!-- Hero-btn -->
+                                    <div class="hero__btn" data-animation="fadeInLeft" data-delay=".8s">
+                                        {% if user.is_authenticated %}
+                                        <a href="{% url 'university' %}" class="btn hero-btn">Find your College</a>
+                                        {% else %}
+                                        <a href="{% url 'login' %}" class="btn hero-btn">Log In</a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="hero__img d-none d-lg-block" data-animation="fadeInRight" data-delay="1s">
+                                    <img src="{% static 'assets/img/hero/1.png' %}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% comment %} <div class="single-slider slider-height d-flex align-items-center" data-background="{% static 'assets/img/hero/h1_hero.png' %}">
+                    <div class="container">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-lg-7 col-md-9 ">
+                                <div class="hero__caption">
+                                    <h1 data-animation="fadeInLeft" data-delay=".4s" >NexStud:Expert Help<br>for Dream University</h1>
+                                    <p data-animation="fadeInLeft" data-delay=".6s">Achieve your academic aspirations with ease by getting into your dream university with NexStud's expert guidance. Our team will provide personalized support to help you navigate the admissions process and secure your place at the university of your choice.</p>
+                                    <!-- Hero-btn -->
+                                    <div class="hero__btn" data-animation="fadeInLeft" data-delay=".8s">
+                                        {% if user.is_authenticated %}
+                                        <a href="{% url 'university' %}" class="btn hero-btn">Find your College</a>
+                                        {% else %}
+                                        <a href="{% url 'login' %}" class="btn hero-btn">Log In</a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="hero__img d-none d-lg-block" data-animation="fadeInRight" data-delay="1s">
+                                    <img src="{% static 'assets/img/hero/2.png' %}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> {% endcomment %}
+            </div>
+        </div>
+        <!-- Slider Area End-->
+        <!-- What We do start-->
+        <div class="what-we-do we-padding">
+            <div class="container">
+                <!-- Section-tittle -->
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="section-tittle text-center">
+                            <h2>Take the Next Step in Your Education Journey with NexStud</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-do text-center mb-30">
+                            <div class="do-icon">
+                                <span><img src="{% static 'assets/img/logo/coun.png' %}" style="max-width: 85px"></span>
+                            </div>
+                            <div class="do-caption">
+                                <h4>Expert Counselling</h4>
+                                <p>Get personalized support from NexStud's expert counsellors to find the right university for you.</p>
+                            </div>
+                            <div class="do-btn">
+                                <a href="{% url 'talktous' %}"><i class="ti-arrow-right"></i> get started</a>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 col-md-6">
+                        <div class="single-do active text-center mb-30">
+                            <div class="do-icon">
+                                <span><img src="{% static 'assets/img/logo/university.png' %}" style="max-width: 85px"></span>
+                            </div>
+                            <div class="do-caption">
+                                <h4>Dream Universities</h4>
+                                <p>Discover your dream university with NexStud and unlock a world of opportunities. From top-ranked institutions</p>
+                            </div>
+                            <div class="do-btn">
+                                <a href="{% url 'university' %}"><i class="ti-arrow-right"></i> get started</a>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-lg-4 col-md-6">
+                        <div class="single-do text-center mb-30">
+                            <div class="do-icon">
+                                <span  class="flaticon-project"></span>
+                            </div>
+                            <div class="do-caption">
+                                <h4>NexLearn</h4>
+                                <p>NexLearn Digital Platform is an innovative technology solution that aims to transform the way students learn and teachers teach..</p>
+                            </div>
+                            <div class="do-btn">
+                                <a href="https://nexel.in/comingsoon_nexlearn"><i class="ti-arrow-right"></i> get started</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- What We do End-->
+        <!-- We Create Start -->
+        <div class="we-create-area create-padding">
+            <div class="container">
+                <div class="row d-flex align-items-end">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="we-create-img">
+                            <img src="{% static 'assets/img//service/we-create.png' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="we-create-cap">
+                            <h3>Make Your University Admissions Process Effortless with NexStud</h3>
+                            <p>Say goodbye to the stress of university admissions with NexStud. Our expert team will simplify the process, providing you with all the guidance and support you need to secure your place at the university of your choice. Make your admissions effortless and focus on what really matters – your education.</p>
+                            <a href="{% url 'formaddmision' %}" class="btn">Get your Admission</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- We Create End -->
+        <!-- Generating Start -->
+        <div class="generating-area ">
+            <div class="container">
+                 <!-- Section-tittle -->
+                 <div class="row d-flex justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="section-tittle text-center">
+                            <h2>Streamline Your University Admissions with NexStud​​</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-generating d-flex mb-30">
+                            <div class="generating-icon">
+                                <span class="flaticon-chart"></span>
+                            </div>
+                            <div class="generating-cap">
+                                <h4>Expert Guidance for Your University Admissions</h4>
+                                <p>We provide counseling, application help and other services to guide you through the admission process and help you make informed decisions. </p>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-generating d-flex mb-30">
+                            <div class="generating-icon">
+                                <span><img src="{% static 'assets/img/logo/university.png' %}" style="max-width: 70px"></span>
+                            </div>
+                            <div class="generating-cap">
+                                <h4>Discover Your Dream University with NexStud</h4>
+                                <p>NexStud helps you discover your dream university. Get informed and make the best choice. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-generating d-flex mb-30">
+                            <div class="generating-icon">
+                                <span class="flaticon-speaker"></span>
+                            </div>
+                            <div class="generating-cap">
+                                <h4>Apply for University Admissions with NexStud's Easy-to-Use Form</h4>
+                                <p>Easily apply for university admissions with NexStud's user-friendly form. Streamline your application process today. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-generating d-flex mb-30">
+                            <div class="generating-icon">
+                                <span class="flaticon-growth"></span>
+                            </div>
+                            <div class="generating-cap">
+                                <h4>Take the First Step towards Your Education with NexStud</h4>
+                                <p>Begin your education journey with NexStud. Take the first step today. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Generating End -->
+        <!-- Visit Stuffs Start -->
+        {% comment %} <div class="visit-area fix visite-padding">
+            <div class="container">
+                <!-- Section-tittle -->
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-6 pr-0">
+                        <div class="section-tittle text-center">
+                            <h2>Visit Some Of Our Awsome Stuffs</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container-fluid p-0">
+                <div class="row ">
+                    <div class="col-lg-3 col-md-4">
+                        <div class="single-visited mb-30">
+                            <div class="visited-img">
+                                <img src="assets/img/visit/visit_1.jpg" alt="">
+                            </div>
+                            <div class="visited-cap">
+                                <h3><a href="#">citmv.com</a></h3>
+                                <p>Email Marketing</p>
+                            </div>
+                        </div>
+                    </div> 
+                     <div class="col-lg-3 col-md-4">
+                        <div class="single-visited mb-30">
+                            <div class="visited-img">
+                                <img src="assets/img/visit/visit_2.jpg" alt="">
+                            </div>
+                            <div class="visited-cap">
+                                <h3><a href="#">mvsp.net</a></h3>
+                                <p>Email Marketing</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4">
+                        <div class="single-visited mb-30">
+                            <div class="visited-img">
+                                <img src="assets/img/visit/visit_3.jpg" alt="">
+                            </div>
+                            <div class="visited-cap">
+                                <h3><a href="#">dmcal.co</a></h3>
+                                <p>Email Marketing</p>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="col-lg-3 col-md-4">
+                        <div class="single-visited mb-30">
+                            <div class="visited-img">
+                                <img src="assets/img/visit/visit_4.jpg" alt="">
+                            </div>
+                            <div class="visited-cap">
+                                <h3><a href="#">dmco.net</a></h3>
+                                <p>Email Marketing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div> {% endcomment %}
+        <!-- Visit Stuffs Start -->
+         <!-- Testimonial Start -->
+         {% comment %} <div class="testimonial-area">
+            <div class="container">
+               <div class="testimonial-main">
+                    <!-- Section-tittle -->
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-lg-5  col-md-8 pr-0">
+                            <div class="section-tittle text-center">
+                                <h2>What Client Say About Us</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                            <div class="col-lg-10 col-md-9">
+                                <div class="h1-testimonial-active">
+                                    <!-- Single Testimonial -->
+                                    <div class="single-testimonial text-center">
+                                        <div class="testimonial-caption ">
+                                            <div class="testimonial-top-cap">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+                                            </div>
+                                            <!-- founder -->
+                                            <div class="testimonial-founder d-flex align-items-center justify-content-center">
+                                                <div class="founder-img">
+                                                    <img src="assets/img/testmonial/testimonial.png" alt="">
+                                                </div>
+                                            <div class="founder-text">
+                                                <span>Oliva jems</span>
+                                                <p>UIX designer</p>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- Single Testimonial -->
+                                    <div class="single-testimonial text-center">
+                                        <div class="testimonial-caption ">
+                                            <div class="testimonial-top-cap">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+                                            </div>
+                                            <!-- founder -->
+                                            <div class="testimonial-founder d-flex align-items-center justify-content-center">
+                                                <div class="founder-img">
+                                                    <img src="assets/img/testmonial/testimonial.png" alt="">
+                                                </div>
+                                            <div class="founder-text">
+                                                <span>Oliva jems</span>
+                                                <p>UIX designer</p>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+               </div>
+            </div>
+        </div> {% endcomment %}
+        <!-- Testimonial End -->
+        <!-- Tips Triks Start -->
+        <div class="tips-triks-area tips-padding">
+            <div class="container">
+                 <!-- Section-tittle -->
+                 <div class="row d-flex justify-content-center">
+                    <div class="col-lg-6 col-md-8 pr-0">
+                        <div class="section-tittle text-center">
+                            <h2>Unlocking the Secrets to a Successful University Admissions</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    {% for allblogs in allblogs %}
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="single-tips mb-50">
+                            <div class="tips-img">
+                                <a href="{% url 'blogdetail' allblogs.slug %}"><img src="{{allblogs.image.url}}" alt=""></a>
+                            </div>
+                            <div class="tips-caption">
+                                <h4><a href="{% url 'blogdetail' allblogs.slug %}">{{allblogs.title}}</a></h4>
+                                <span>Continue Reading</span>
+                                <p>{{allblogs.month}} {{allblogs.date}}, 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- Tips Triks End -->
+         <!-- have-project Start-->
+         <div class="have-project">
+            <div class="container">
+                <div class="haveAproject"  data-background="assets/img/team/have.jpg">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-xl-7 col-lg-9 col-md-12">
+                            <div class="wantToWork-caption">
+                                <h2>Connect with Your Dream University through NexStud</h2>
+                                <p>Take the first step towards your academic aspirations and connect with your dream university through NexStud. Our expert team will help you navigate the admissions process.</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-lg-3 col-md-12">
+                           <div class="wantToWork-btn f-right">
+                                <a href="{% url 'formaddmision' %}" class="btn btn-ans">Contact Us</a>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!-- have-project End -->
+
+    </main >
+
+
+    {% endblock content %}

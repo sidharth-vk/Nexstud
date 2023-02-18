@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block meta %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+{% for university in university %}
+<meta name="description" content="Learn about {{university.college_name}}, a top-ranked university in {{university.university_city}},{{university.university_state}},India. Discover its history, programs, facilities, and admission requirements.">
+<meta name="keywords" content="{{university.college_name}}, university, {{university.university_city}},{{university.university_state}},India , history, programs, facilities, admission requirements">
+{% endfor %}
+<meta name="google-site-verification" content="q7T0NKFI4OPbGi_mKXvxUJxaFMja0LrtrxOu7_18GqI" />
+<meta name="author" content="Nexstud by Nexel">
+<meta name="copyright" content="Copyright (c) 2023 NexStud">
+{% endblock meta %}
+
+
+
+
+{% block title %}
+{% for university in university %}
+Nexstud - {{university.college_name}} {{university.university_name}}
+{% endfor %}
+{% endblock title %}
+{% block content %}
+<br>
+<br>
+<br>
+{% for university in university %}
+<div class="container px-4 px-lg-5 mt-4">
+    <!-- Heading Row-->
+    <br>
+    <div class="row gx-4 gx-lg-5 align-items-center my-5" style="    text-align: center;">
+        <div class="col-lg-4 col-md-12 col-sm-12 align-items-center" style="display: flex;justify-content: center;"><img class="img-fluid rounded mb-4 mb-lg-0" src="{{university.university_img.url}}" style="height:300px; width:auto;" alt="..." /></div>
+        <div class="col-lg-8">
+            <h2 class="font-weight-light">{{university.college_name}}</h2>
+            <h6>{{university.university_name}}<h6>
+                <hr>
+            <div style="text-align: justify;">{{university.university_Discription|safe}}</div>
+            {% comment %} <a class="btn btn-warning mt-2" href="#!">Call to Action!</a> {% endcomment %}
+            <a class="btn btn-primary mt-2" href="{% url 'formaddmision' %}">Register</a>
+        </div>
+    </div>
+
+    <!-- Call to Action-->
+    <div class="card text-white bg-secondary my-5 py-4 text-center">
+        <div class="card-body"><p class="text-white m-0" style="color:white">Course Offered : {{university.university_courses}}</p></div>
+    </div>
+    <!-- Content Row-->
+    {% comment %} <div class="row gx-4 gx-lg-5">
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title">Card One</h2>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title">Card Two</h2>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore voluptates quos eligendi labore.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h2 class="card-title">Card Three</h2>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+                </div>
+            </div>
+        </div>
+    </div> {% endcomment %}
+    <h5 class="font-weight-bold">OTHER {{university.University_category}} COLLEGES </h5>
+</div>
+{% endfor %}
+
+
+<div class="container px-4 px-lg-5 mt-4">
+    <div class="row">
+    {% for alluniversity in alluniversity %}
+    <div class="col-md-4 d-flex align-items-stretch ftco-animate mt-4">
+        <div class="project-wrap" style="background-color: #FBF9FF;">
+          <a class="img" href="{% url 'university_view' alluniversity.slug %}" >
+            <img class="postcard__img" src="{{alluniversity.university_img.url}}" style=" border-radius: 20px; height: 270px; width: 340px; background-position: center center;" alt="Image Title" />	
+            {% comment %} <span class="price">{{university.duraction}} Year</span> {% endcomment %}
+          </a>
+          <div class="text p-4" style="width: 340px;">
+            <h4><a href="{% url 'university_view' alluniversity.slug %}">{{alluniversity.college_name}}</a></h4>
+            <h6>{{alluniversity.university_name}}<h6>
+            <p class="advisor">Course : {{alluniversity.university_courses}} <br>City : {{alluniversity.university_city}} <br> State : {{alluniversity.university_state}}</p>
+            <ul class="d-flex justify-content-between">
+              <li><a href="{% url 'talktous' %}">Talk to Expert</a></li>
+              <li><a href="{% url 'university_view' alluniversity.slug %}">Register Now</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+</div>
+<br>
+<br>
+<br>
+{% endblock %}

@@ -1,0 +1,259 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Discover top universities in India with NexStud's comprehensive listing. Explore our extensive database of universities and find your ideal match.">
+<meta name="keywords" content="universities, India, university listing, university database, NexStud">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<meta name="google" content="nositelinkssearchbox">
+<meta name="google-site-verification" content="q7T0NKFI4OPbGi_mKXvxUJxaFMja0LrtrxOu7_18GqI" />
+<meta name="author" content="Nexstud by Nexel">
+<meta name="copyright" content="Copyright (c) 2023 NexStud">
+
+{% endblock meta %}
+
+
+{% block title %}
+Discover Top Universities in India with NexStud's Comprehensive Listing
+{% endblock title %}
+
+{% block content %}
+
+
+        <!-- Slider Area Start-->
+        <div style="margin-top: 150px;">
+            <div class="container">
+                <!-- Section-tittle -->
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="section-tittle text-center mb-60">
+                            <h2>Find Your College​</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Slider Area End-->
+
+
+        {% comment %} <section id="book">
+            <div class="container pt-5 p-4" style="max-width: 1400px;">
+              <div class="row" style="display: grid; grid-template-columns: repeat(4, 1fr); grid-gap: 10px;">
+
+                {% for universities in university %}
+                <div class="col">
+                    <div class="card h-100">
+                      <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/043.webp" class="card-img-top" alt="Los Angeles Skyscrapers"/>
+                      <div class="card-body">
+                        <h5 class="card-title">{{universities.university_name}}</h5>
+                        <p class="card-text">{{universities.university_Discription}}</p>
+                      </div>
+                      <div class="card-footer" style="text-align: center;">
+                        <small class="text-muted" >{{universities.university_city}} , {{universities.university_state}}</small>
+                      </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+              </div>
+            </div>
+          </section> 
+
+ {% endcomment %}
+<section class="container">
+<aside class="single_sidebar_widget search_widget">
+    <form action="search" method="get">
+        
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="query" id="query" placeholder='Search College'
+                    onfocus="this.placeholder = ''"
+                    onblur="this.placeholder = 'Search College'">
+                <div class="input-group-append">
+                    <button style=" padding: 7px 22px;" class="button rounded-0 primary-bg text-white  btn_1 boxed-btn" type="submit"><i class="ti-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </form>
+</aside>
+</section>
+<hr>
+
+          <section class="blog_area section-paddingr">
+            <div class="container" style="max-width: 1400px;">
+                <div class="row">
+                    <div class="col-lg-9" style="margin: auto">
+                        <div class="row" style="margin: auto">
+                            {% for university in university %}
+                                {% include 'card.html' %}
+                            {% empty %}
+                            <div class="section-tittle text-center mb-80">
+                                <h5>We apologize for the inconvenience, as we are currently updating our database. The updated college list will be available soon.</h5>
+                            </div>
+                            {% endfor %}
+                            
+                        </div>
+                        <nav class="blog-pagination justify-content-center d-flex">
+                            <ul class="pagination">
+                                {% if university.has_previous %}
+                                <li class="page-item">
+                                    <a href="?page={{ university.previous_page_number }}" class="page-link" aria-label="Previous">
+                                        <i class="ti-angle-left"></i>
+                                    </a>
+                                </li>
+                                {% endif %}
+                                <li class="page-item active">
+                                    <a href="" class="page-link">{{ university.number }}</a>
+                                </li>
+                                {% if university.has_next %}
+                                <li class="page-item">
+                                    <a href="?page={{ university.next_page_number }}" class="page-link" aria-label="Next">
+                                        <i class="ti-angle-right"></i>
+                                    </a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                    <br>
+                    <div class="col-lg-3 col-md-12 mt-3">
+                        <div class="blog_right_sidebar">
+                            {% comment %} <aside class="single_sidebar_widget search_widget">
+                                <form action="search" method="get">
+                                    
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" name="query" id="query" placeholder='Search College'
+                                                onfocus="this.placeholder = ''"
+                                                onblur="this.placeholder = 'Search College'">
+                                            <div class="input-group-append">
+                                                <button class="btns" type="button"><i class="ti-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
+                                        type="submit">Search</button>
+                                </form>
+                            </aside> {% endcomment %}
+    
+                            <aside class="single_sidebar_widget post_category_widget">
+                                <h4 class="widget_title">Course</h4>
+                                <form  action="search" method="get">
+                                <ul class="list cat-list">
+                                    <li>
+                                        <a href="search?query=MBBS" type="submit" name="query"  id="query" value="MBBS" class="d-flex">
+                                            <p>MBBS</p>
+                                
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="search?query=ENGINEERING" type="submit" name="query"  id="query" value="ENGINEERING" class="d-flex">
+                                            <p>Engineering</p>
+                                         
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="search?query=MANAGEMENT" type="submit" name="query"  id="query" value="MANAGEMENT" class="d-flex">
+                                            <p>Managment</p>
+                                       
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="search?query=AGRICULTURE" type="submit" name="query"  id="query" value="AGRICULTURE" class="d-flex">
+                                            <p>Agriculture</p>
+                                          
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="search?query=ALLIED" type="submit" name="query"  id="query" value="ALLIED" class="d-flex">
+                                            <p>Allied</p>
+                                       
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="search?query=PARAMEDICAL" type="submit" name="query"  id="query" value="PARAMEDICAL" class="d-flex">
+                                            <p>Paramedical</p>
+                                        
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="search?query=NURSING" type="submit" name="query"  id="query" value="PARAMEDICAL" class="d-flex">
+                                            <p>Nursing</p>
+                                        
+                                        </a>
+                                    </li>
+                                </ul>
+                                </form>
+                            </aside>
+
+                            <aside class="single_sidebar_widget post_category_widget">
+                                <h4 class="widget_title">City</h4>
+                                <form  action="search" method="get">
+                                <ul class="list cat-list">
+                                    <li>
+                                        <a href="search?query=Mangalore" type="submit" name="query"  id="query" value="MAngalore" class="d-flex">
+                                            <p>Mangalore</p>
+                                
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="search?query=Bangalore" type="submit" name="query"  id="query" value="Kochi" class="d-flex">
+                                            <p>Bangalore</p>
+                                         
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="search?query=Chennai" type="submit" name="query"  id="query" value="MANAGEMENT" class="d-flex">
+                                            <p>Chennai</p>
+                                       
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="search?query=Coimbatore" type="submit" name="query"  id="query" value="AGRICULTURE" class="d-flex">
+                                            <p>Coimbatore</p>
+                                          
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="search?query=Mumbai" type="submit" name="query"  id="query" value="ALLIED" class="d-flex">
+                                            <p>Mumbai</p>
+                                       
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="search?query=Kochi" type="submit" name="query"  id="query" value="PARAMEDICAL" class="d-flex">
+                                            <p>Kochi</p>
+                                        
+                                        </a>
+                                    </li>
+                                </ul>
+                                </form>
+                            </aside>
+    
+                           
+
+                            <aside class="single_sidebar_widget newsletter_widget">
+                                <h4 class="widget_title">Newsletter</h4>
+    
+                                <form action="#">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" onfocus="this.placeholder = ''"
+                                            onblur="this.placeholder = 'Enter email'" placeholder='Enter email' required>
+                                    </div>
+                                    <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
+                                        type="submit">Subscribe</button>
+                                </form>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+{% endblock content %}

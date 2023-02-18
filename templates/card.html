@@ -1,0 +1,18 @@
+
+    <div class="col-md-4 d-flex align-items-stretch ftco-animate mt-4" >
+      <div class="project-wrap" style="background-color: #FBF9FF;  ">
+        <a class="img tips-img" href="{% url 'university_view' university.slug %}" >
+          <img class="postcard__img" src="{{university.university_img.url}}" style=" border-radius: 20px; height: 270px;  width: 100%;  background-position: center center;" alt="Image Title" />	
+          {% comment %} <span class="price">{{university.duraction}} Year</span> {% endcomment %}
+        </a>
+        <div class="text p-4" style="">
+          <h4><a href="{% url 'university_view' university.slug %}">{{university.college_name}}</a></h4>
+          <h6>{{university.university_name}}<h6>
+          <p class="advisor">Course : {{university.university_courses}} <br>City : {{university.university_city}} <br> State : {{university.university_state}}</p>
+          <ul class="d-flex justify-content-between">
+            <li><a href="{% url 'talktous' %}">Talk to Expert</a></li>
+            <li><a href="{% url 'university_view' university.slug %}">Register Now</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>

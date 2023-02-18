@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+<section class="container">
+    <form style="margin-top: 100px;" action="{% url 'profileform' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <div class="row mb-4">
+        <div class="col">
+            <div class="form-outline">
+                <input type="text" name="first_name" placeholder="First Name"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name'" required
+                class="single-input">
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="text" name="last_name" placeholder="Last Name"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'" required
+                class="single-input">
+            </div>
+        </div>
+        </div>
+    
+        <!-- Text input -->
+        <div class="form-outline mb-4">
+            <input type="text" name="address" placeholder="Address" onfocus="this.placeholder = ''"
+            onblur="this.placeholder = 'Address'" required class="single-input">
+        </div>
+    
+        <!-- Text input -->
+        <div class="form-outline mb-4">
+            <input type="text" name="city" placeholder="City" onfocus="this.placeholder = ''"
+            onblur="this.placeholder = 'City'" required class="single-input">
+        </div>
+
+        <div class="form-outline mb-4">
+            <input type="text" name="state" placeholder="State" onfocus="this.placeholder = ''"
+            onblur="this.placeholder = 'State'" required class="single-input">
+        </div>
+
+
+        <div class="form-outline mb-4">
+            
+            <input type="tel" name="pincode" placeholder="Pin Code" pattern="[0-9]{6}"
+            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pin Code'" required
+            class="single-input">
+        </div>
+    
+        <!-- Number input -->
+        <div class="form-outline mb-4">
+            
+            <input type="tel" name="phono" placeholder="Phone Number (Without +91)" pattern="[0-9]{10}"
+            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone Number (Without +91)'" required
+            class="single-input">
+        </div>
+    
+        <!-- Message input -->
+        <div class="row mb-4">
+            <div class="col-2" style="justify-content: center; display: flex; margin: auto;">
+                <div class="form-outline">
+                    <h5>Date of Birth :</h5>
+                </div>
+            </div>
+            <div class="col-10">
+                <div class="form-outline">
+                    <input type="date" name="date" placeholder="DOB" onfocus="this.placeholder = ''"
+            onblur="this.placeholder = 'DOB'" required class="single-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-outline mb-4">
+            <input type="text" name="ReferalCode" placeholder="Referal Code" onfocus="this.placeholder = ''"
+            onblur="this.placeholder = 'Referal Code'" required class="single-input">
+        </div>
+
+        {% comment %} <div class="row mb-4">
+            <div class="col-2" style="justify-content: center; display: flex; margin: auto;">
+                <div class="form-outline">
+                    <h5>Profile Photo :</h5>
+                </div>
+            </div>
+            <div class="col-10">
+                <div class="form-outline">
+                    <input type="file" name="profile" placeholder="Profile" onfocus="this.placeholder = ''"
+            onblur="this.placeholder = 'Profile'" required class="single-input" accept="image/*">
+                </div>
+            </div>
+        </div> {% endcomment %}
+
+    
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4" value="upload">Submit</button>
+    </form>
+</section>
+
+
+  {% endblock content %}

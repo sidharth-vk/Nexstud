@@ -1,0 +1,226 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+{% for blog in blog %}
+Nexstud - {{blog.title}}
+{% endfor %}
+{% endblock title %}
+
+
+{% block meta %}
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+{% for blog in blog %}
+<meta name="description" content="{{blog.title}} - Nexstud">
+{% endfor %}
+<meta name="keywords" content="blog, education, university admissions, expert insights, advice, NexStud">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<meta name="google" content="nositelinkssearchbox">
+<meta name="google-site-verification" content="q7T0NKFI4OPbGi_mKXvxUJxaFMja0LrtrxOu7_18GqI" />
+<meta name="author" content="Nexstud by Nexel">
+<meta name="copyright" content="Copyright (c) 2023 NexStud">
+{% endblock meta %}
+
+
+
+{% block content %}
+{% for blog in blog %}
+       <!-- Slider Area Start-->
+       <div class="services-area">
+         <div class="container">
+
+             <!-- Section-tittle -->
+             <div class="row d-flex justify-content-center">
+                 <div class="col-lg-8">
+                     <div class="section-tittle text-center mb-80">
+                         <span>NEXSTUD NEXEL</span>
+                         <h2>{{blog.title}}​</h2>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <!-- Slider Area End-->
+     
+   <!--================Blog Area =================-->
+   <section class="blog_area single-post-area " style="margin-bottom: 100px">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-8 posts-list">
+               <div class="single-post">
+                  <div class="blog_details">
+                     <h2>{{blog.longtitle}}
+                     </h2>
+                     <ul class="blog-info-link mt-3 mb-4">
+                        <li><a><i class="fa fa-tag"></i> University, Education</a></li>
+                        <li><a href="https://nexel.in"><i class="fa fa-user"></i> Nexel</a></li>
+                     </ul>
+                     <p class="excert">
+                        {{blog.BlogContent|safe}}
+                     </p>
+                     
+                     <div class="quote-wrapper">
+                        <div class="quotes">
+                           {{blog.quote}}
+                        </div>
+                     </div>
+                     <div class="feature-img">
+                        <img class="img-fluid" src="{{blog.image.url}}" alt="">
+                     </div>
+                     
+                     
+                  </div>
+               </div>
+               <div class="navigation-top">
+                  <div class="d-sm-flex justify-content-between text-center">
+                     <p class="like-info"><span class="align-middle"><i class="fa fa-heart"></i></span>Nestud By Nexel</p>
+                     <div class="col-sm-4 text-center my-2 my-sm-0">
+                        <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
+                     </div>
+                     <ul class="social-icons">
+                        <li><a href="tel: 9778165158"><i class="fas fa-phone"></i></a></li>
+                        <li><a href="https://nexel.in"><i class="fas fa-globe"></i></a></li>
+                        <li><a href="https://www.instagram.com/nexel.in/"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://api.whatsapp.com/send/?phone=919778165158&text&type=phone_number&app_absent=0"><i class="fab fa-whatsapp"></i></a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="blog_right_sidebar">
+
+                  <aside class="single_sidebar_widget post_category_widget">
+                     <h4 class="widget_title">Selete College By City</h4>
+                     <form  action="search" method="get">
+                     <ul class="list cat-list">
+                         <li>
+                             <a href="../university/search?query=Mangalore" type="submit" name="query"  id="query" value="MAngalore" class="d-flex">
+                                 <p>Mangalore</p>
+                     
+                             </a>
+                         </li>
+                         <li>
+                             <a href="../university/search?query=Kochi" type="submit" name="query"  id="query" value="Kochi" class="d-flex">
+                                 <p>Bangalore</p>
+                              
+                             </a>
+                         </li>
+                         <li>
+                             <a href="../university/search?query=Chennai" type="submit" name="query"  id="query" value="MANAGEMENT" class="d-flex">
+                                 <p>Chennai</p>
+                            
+                             </a>
+                         </li>
+                         <li>
+                             <a href="../university/search?query=Coimbatore" type="submit" name="query"  id="query" value="AGRICULTURE" class="d-flex">
+                                 <p>Coimbatore</p>
+                               
+                             </a>
+                         </li>
+                         <li>
+                             <a href="../university/search?query=Mumbai" type="submit" name="query"  id="query" value="ALLIED" class="d-flex">
+                                 <p>Mumbai</p>
+                            
+                             </a>
+                         </li>
+                         <li>
+                             <a href="../university/search?query=Kochi" type="submit" name="query"  id="query" value="PARAMEDICAL" class="d-flex">
+                                 <p>Kochi</p>
+                             
+                             </a>
+                         </li>
+                     </ul>
+                     </form>
+                 </aside>
+
+                  <aside class="single_sidebar_widget popular_post_widget">
+                     <h3 class="widget_title">Recent Post</h3>
+                     {% for allblogs in allblogs %}
+                     <div class="media post_item">
+                        <img src="{{allblogs.image.url}}" style="width:80px; border-radius: 20px" alt="post">
+                        <div class="media-body">
+                           <a href="{% url 'blogdetail' allblogs.slug %}">
+                              <h3>{{allblogs.title|slice:25}}....</h3>
+                           </a>
+                           <p>{{allblogs.month}} {{allblogs.date}}, 2023</p>
+                        </div>
+                     </div>
+                     {% endfor %}
+                  </aside>
+                  <aside class="single_sidebar_widget post_category_widget">
+                     <h4 class="widget_title">Courses</h4>
+                     <form  action="search" method="get">
+                     <ul class="list cat-list">
+                         <li>
+                             <a href="../university/search?query=MBBS" type="submit" name="query"  id="query" value="MBBS" class="d-flex">
+                                 <p>MBBS</p>
+                     
+                             </a>
+                         </li>
+                         <li>
+                             <a href="../university/search?query=ENGINEERING" type="submit" name="query"  id="query" value="ENGINEERING" class="d-flex">
+                                 <p>Engineering</p>
+                              
+                             </a>
+                         </li>
+                         <li>
+                             <a href="../university/search?query=MANAGEMENT" type="submit" name="query"  id="query" value="MANAGEMENT" class="d-flex">
+                                 <p>Managment</p>
+                            
+                             </a>
+                         </li>
+                         <li>
+                             <a href="../university/search?query=AGRICULTURE" type="submit" name="query"  id="query" value="AGRICULTURE" class="d-flex">
+                                 <p>Agriculture</p>
+                               
+                             </a>
+                         </li>
+                         <li>
+                             <a href="../university/search?query=ALLIED" type="submit" name="query"  id="query" value="ALLIED" class="d-flex">
+                                 <p>Allied</p>
+                            
+                             </a>
+                         </li>
+                         <li>
+                             <a href="../university/search?query=PARAMEDICAL" type="submit" name="query"  id="query" value="PARAMEDICAL" class="d-flex">
+                                 <p>Paramedical</p>
+                             
+                             </a>
+                         </li>
+                         <li>
+                             <a href="../university/search?query=NURSING" type="submit" name="query"  id="query" value="PARAMEDICAL" class="d-flex">
+                                 <p>Nursing</p>
+                             
+                             </a>
+                         </li>
+                     </ul>
+                     </form>
+                 </aside>
+
+                  <aside class="single_sidebar_widget newsletter_widget">
+                     <h4 class="widget_title">Newsletter</h4>
+
+                     <form action="#" method="POST">
+                         {% csrf_token %}
+                         <div class="form-group">
+                             <input type="email" class="form-control" name="email"  onfocus="this.placeholder = ''"
+                                 onblur="this.placeholder = 'Enter email'" placeholder='Enter email' required>
+                         </div>
+                         <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
+                             type="submit">Subscribe</button>
+                     </form>
+
+
+                 </aside>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   {% endfor %}
+{% endblock %}

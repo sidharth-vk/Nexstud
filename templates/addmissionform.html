@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+<br>
+<br>
+<br>
+<div class="row d-flex justify-content-center mt-4">
+    <div class="col-lg-6 col-md-8 pr-0">
+        <div class="section-tittle text-center">
+            <h2>Register Your Addmission</h2>
+            <p style="margin-top: -55px; margin-bottom: 45px;">Unlock your potential and secure your future with our admission process, where excellence meets opportunity.</p>
+        </div>
+    </div>
+</div>
+
+<section class="container" style="max-width: 900px; height: 400px">
+    <form style="margin-top: 10px;" action="{% url 'formaddmision' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <div class="row mb-4">
+        <div class="col">
+            <div class="form-outline">
+                <input type="text" name="first_name" placeholder="First Name"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name'" required
+                class="single-input">
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-outline">
+                <input type="text" name="last_name" placeholder="Last Name"
+                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'" required
+                class="single-input">
+            </div>
+        </div>
+        </div>
+    
+       
+
+
+        <div class="form-outline mb-4">
+            <input type="text" name="address" placeholder="address" onfocus="this.placeholder = ''"
+            onblur="this.placeholder = 'Adress'" required class="single-input">
+        </div>
+
+
+    
+        <!-- Number input -->
+        <div class="form-outline mb-4">
+            
+            <input type="tel" name="phono" placeholder="Phone Number (Without +91)" pattern="[0-9]{10}"
+            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone Number (Without +91)'" required
+            class="single-input">
+        </div>
+
+        
+
+        <div class="form-outline mb-4">
+            <input type="text" name="college" placeholder="College name with state" onfocus="this.placeholder = ''"
+            onblur="this.placeholder = 'xyz college , Mangalore'" required class="single-input">
+        </div>
+    
+        <!-- Message input -->
+
+
+        {% comment %} <div class="row mb-4">
+            <div class="col-2" style="justify-content: center; display: flex; margin: auto;">
+                <div class="form-outline">
+                    <h5>Profile Photo :</h5>
+                </div>
+            </div>
+            <div class="col-10">
+                <div class="form-outline">
+                    <input type="file" name="profile" placeholder="Profile" onfocus="this.placeholder = ''"
+            onblur="this.placeholder = 'Profile'" required class="single-input" accept="image/*">
+                </div>
+            </div>
+        </div> {% endcomment %}
+
+    
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block" value="upload">Submit</button>
+    </form>
+    
+</section>
+<div class="container" style="max-width: 900px;">
+    <p>Here is a step-by-step procedure for suggesting a college for admission on the website "Nexstud"</p>
+<ol type="1" style="font-size:10px">
+    <li>1. Go to the website "Nexstud" and log in to your account, if you have one. If you don't have an account, create one by providing the required information and following the prompts.</li>
+    <li>2. Locate the section for suggesting a new college for admission. This may be found under a "Suggestions" or "Contact Us" tab on the website.</li>
+    <li>3. Fill out the form provided, including your name, email address, and the name of the college you want to suggest (XYZ College).</li>
+    <li>4. In the message field, explain why you want to suggest this college for admission on the website. Provide information about the college, including its location, programs offered, and any other relevant details.</li>
+    <li>5. Submit the form by clicking the "Submit" or "Send" button.</li>
+    <li>6. Wait for a response from the website administrators. They may need to verify the information you have provided and may also have additional questions for you.</li>
+    <li>7. Once the college has been added to the website, you can start using it to apply for admission at XYZ College.</li>
+</ol>
+</div>
+<br>
+
+
+
+  {% endblock content %}
